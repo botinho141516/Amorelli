@@ -1,0 +1,51 @@
+
+.b {
+	border:1px solid red;
+}
+
+.carousel-page-container {
+	position:relative;
+	z-index: 100;
+	background-color: rgba(0,0,0,0.7);
+}
+
+
+.carousel-body {
+	width:100%;
+	display: flex;
+	justify-content: center;
+}
+
+
+.carousel-photo-container {
+	margin:auto;
+	display: flex;
+	justify-content: center;
+
+}
+
+.carousel-img {
+	/*display: none;*/
+	width:65%;
+	height:auto;
+	margin:auto;
+}
+
+#close-x {
+	color:rgb(238,238,238);
+	font-size: 40px;
+	position: fixed;
+	top:4%;
+	right:4%;
+}
+
+#left-control span {
+	color:rgba(238,238,238,0.5);
+	font-size:35px;
+}
+
+#right-control span {
+	color:rgba(238,238,238,0.5);
+	font-size:35px;
+
+}

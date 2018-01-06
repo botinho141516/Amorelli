@@ -1,0 +1,358 @@
+<head>
+	<title>Amorelli</title>
+
+	<meta name="viewport" content="width=device-width" />
+	
+	<!-- Awesome Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!--Fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" rel="stylesheet">
+
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="CSS/lugares.css">
+
+	<!-- JavaScript -->
+	<script type="text/javascript" src="JS/lugares.js"></script>
+
+	<!-- JQuery -->		
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+	<style>
+	/*Navbar*/
+
+		.navbar-block {
+			display: block;
+			width:100%;
+		}
+
+		.navbar-active {
+			border-top: 2px solid white;
+
+		}
+
+		.navbar-topbar {
+			margin:auto;
+			width:70px;
+			padding:0 4px;
+		}
+
+		.navbar-topbar:hover {
+			border-top: 2px solid white;
+		}
+
+		.navbar-item {
+			text-align: center;
+		}
+
+
+		#navbar-list {
+			margin: 15px auto;
+			padding:18px 0;
+			display: flex;
+			list-style: none;
+			width:fit-content;
+		}
+
+
+
+		#navbar-list li {
+			margin:0 3px;
+			align-content: space-around;
+		}
+
+		#navbar-list li a{
+			text-decoration: none;
+			color:white;
+			font-weight: 300;
+			font-size:19px;
+			line-height: 150%;
+		}
+
+		.navbar-icon {
+			display:none;
+			float: right;	
+			color:white;
+			cursor: pointer;
+			font-size: 35px;
+			margin-right: 5px;
+		}
+
+		.navber-icon:hover {
+			border:1px solid #777;
+		}
+
+
+
+		@media only screen and (max-width: 500px) {
+
+
+		.navbar-icon {
+				display:block;
+				margin:2px solid white;
+			}
+		
+			#navbar-list {
+				display: none;
+			}
+		
+			#navbar-list li a{
+				font-size:22px;
+				line-height: 150%;
+			}
+		}
+
+
+	/*Sidebar*/
+		
+		.sidebar-container {
+			position: fixed;
+			top:30%;
+			right:1%;
+			height:fit-content;
+			display: flex;
+		}
+
+		.sidebar-list {
+			margin:auto;
+			display: flex;
+			flex-direction: column;
+			padding:0;
+
+		}
+
+		.sidebar-list-unit {
+			justify-content: space-between;
+			list-style-type: none;
+			margin:6px auto;
+
+		}
+		.sidebar-img {
+			width:45px;
+		}
+		.sidebar-social-unit-link {
+			justify-content: center;
+		}
+
+
+		.side-icon-style {
+			color:white;
+		}
+
+
+	/*Pessoas*/
+		html,body {
+			background-color: white;
+			width:100%;
+			margin:0;
+			font-family:'Source Sans Pro',sans-serif;
+		}
+
+
+		.parallax-cover {
+			height: 450px;
+			width:100%;
+			
+			display: flex;
+			flex-direction: column;
+
+			background-image: url(https://i.imgur.com/W7bN64z.jpg);
+			background-attachment: fixed;
+		    background-position: center;
+		    background-repeat: no-repeat;
+		    background-size: cover;
+
+
+		}
+
+		.text-cover {
+			margin:auto;
+			text-align: center;
+
+			color:white;
+			font-family: 'Source Sans Pro', sans-serif;
+			font-size:70px;
+			font-weight: 100;
+			letter-spacing: 12px;
+		}
+
+		.gallery-frame {
+			display: flex;
+			justify-content: ;
+			flex-wrap: wrap;
+		}
+
+		.gallery-unit {
+			margin:3px auto;
+			height:160px;
+			width:calc(25% - 6px);
+
+			transition-timing-function: linear;
+			transition: opacity 1.2s;
+			-webkit-transition: opacity 1.2s;
+			-moz-transition: opacity 1.2s;
+			-o-transition:opacity 1.2s;
+
+			opacity:1;
+		}
+
+		.gallery-unit:hover {
+			opacity:0.3;
+		}
+
+		@media only screen and (max-width:680px) {
+		    .parallax-cover {
+		        background-attachment: scroll;
+		    }
+
+		    .text-cover {
+		    	font-size:55px;
+			    letter-spacing: 10px;
+		    }
+		}
+
+		@media only screen and (max-width:400px) {
+
+			.text-cover {
+				font-size: 40px;
+				letter-spacing:8px;
+			}
+		}
+
+
+	</style>
+
+	<script>
+		window.onload = function()
+		{
+			$(".navbar-topbar").each(function($index) {
+				var $pagAtual = 0;
+
+				if ($index == $pagAtual) 
+					$(this).addClass("navbar-active");
+			});
+
+			$(".gallery-unit").each(function() {
+				$(this).css("height",$(this).width()*2/3);
+			});
+
+		};
+
+		function openNavbar() {
+			var $navBar = $("#navbar-list");
+
+			if($navBar.css("display") === "none") {
+				$navBar.css("display","block");
+			} else {
+				$navBar.css("display","none");
+			}
+		}
+
+		window.onresize = function() {
+			var $navBar = $("#navbar-list");
+
+			if($(window).width() >= 500) {
+				if($navBar.css("display") === "block" || $navBar.css("display") === "none") {
+					$navBar.css("display","flex");
+				}
+
+			} else {
+				$navBar.css("display","none");
+			}
+		};
+
+	</script>
+
+</head>
+
+<body>
+
+	<div class="page-container">
+		<div class="sidebar-container b">
+            <ul class="sidebar-list">
+
+                <li class="sidebar-list-unit b">
+                    <a class="sidebar-social-unit-link" href="">
+                        <i class="fa fa-facebook side-icon-style b" style="font-size:34px"></i>
+                    </a>
+                </li>
+
+                <li class="sidebar-list-unit b">
+                    <a class="sidebar-social-unit-link" href="">
+                        <i class="fa fa-instagram side-icon-style b" style="font-size:32px"></i>
+                    </a>
+                </li>
+
+                <li class="sidebar-list-unit b">
+                    <a class="sidebar-social-unit-link" href="https://www.behance.net/amorelliff60bd">
+                        <i class="fa fa-behance side-icon-style b" style="font-size:28px"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+		<div class="parallax-cover">
+			<div href="javascript:void(0)" class="navbar-icon b" onclick="openNavbar()">
+				&#9776;
+			</div>
+
+			<ul id="navbar-list" class="navbar-big-screen b">
+				<li>
+					<div class="navbar-topbar b">
+						<div class="navbar-item b">
+							<a href="">Home</a>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<div class="navbar-topbar b">
+						<div class="navbar-item b">
+							<a href="">Pessoas</a>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<div class="navbar-topbar b">
+						<div class="navbar-item b">
+							<a href="">Lugares</a>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<div class="navbar-topbar b">
+						<div class="navbar-item b">
+							<a href="">Sobre</a>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<div class="navbar-topbar b">
+						<div class="navbar-item b">
+							<a href="">Contato</a>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+	
+			<div class="text-cover">
+				PESSOAS
+			</div>
+		</div>
+		<div class="gallery-frame">	
+			<img class="gallery-unit" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+			<img class="gallery-unit" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+			<img class="gallery-unit" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+			<img class="gallery-unit" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+			<img class="gallery-unit" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+			<img class="gallery-unit" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+			<img class="gallery-unit" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+			<img class="gallery-unit" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+		</div>
+	</div>
+
+</body>
