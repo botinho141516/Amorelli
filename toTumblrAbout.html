@@ -103,44 +103,9 @@
 		}
 
 
-	/*Sidebar*/
-		
-		.sidebar-container {
-			position: fixed;
-			top:30%;
-			right:1%;
-			height:fit-content;
-			display: flex;
-		}
-
-		.sidebar-list {
-			margin:auto;
-			display: flex;
-			flex-direction: column;
-			padding:0;
-
-		}
-
-		.sidebar-list-unit {
-			justify-content: space-between;
-			list-style-type: none;
-			margin:6px auto;
-
-		}
-		.sidebar-img {
-			width:45px;
-		}
-		.sidebar-social-unit-link {
-			justify-content: center;
-		}
 
 
-		.side-icon-style {
-			color:white;
-		}
-
-
-	/*Pessoas*/
+	/*About*/
 		html,body {
 			background-color: white;
 			width:100%;
@@ -156,7 +121,7 @@
 			display: flex;
 			flex-direction: column;
 
-			background-image: url(https://i.imgur.com/W7bN64z.jpg);
+			background-image: url(https://i.imgur.com/8lL4mVe.jpg);
 			background-attachment: fixed;
 		    background-position: center;
 		    background-repeat: no-repeat;
@@ -176,29 +141,38 @@
 			letter-spacing: 12px;
 		}
 
-		.gallery-frame {
+		.about-description-frame {
 			display: flex;
-			justify-content: ;
-			flex-wrap: wrap;
+			background-color: rgb(245,245,245);
+			align-items: baseline;
+			justify-content: center;
+			height: -moz-available;
+			height: -webkit-fill-available;    
+
 		}
 
-		.gallery-unit {
-			margin:3px auto;
-			height:160px;
-			width:calc(25% - 6px);
-
-			transition-timing-function: linear;
-			transition: opacity 1.2s;
-			-webkit-transition: opacity 1.2s;
-			-moz-transition: opacity 1.2s;
-			-o-transition:opacity 1.2s;
-
-			opacity:1;
+		.about-description-title {
+			font-size: 47px;
+			margin-top:40px;
+			color:#777777;
+			width:200px;
+			font-weight: 600;
+			height: fit-content;
+			line-height: 46px;
 		}
 
-		.gallery-unit:hover {
-			opacity:0.3;
+		.about-description-text {
+			font-family: 'Source Sans Pro', sans-serif;
+			color:#777777;
+			font-size: 21px;
+			font-weight: 100;
+			width:300px;
+			height:500px;
+
 		}
+
+
+		
 
 		@media only screen and (max-width:680px) {
 		    .parallax-cover {
@@ -208,6 +182,21 @@
 		    .text-cover {
 		    	font-size:55px;
 			    letter-spacing: 10px;
+		    }
+		    .about-description-frame {
+		    	flex-direction: column;
+		    }
+		    .about-description-title {
+		    	font-size: 35px;
+		    	margin-left: 10%;
+		    	width:140px;
+		    	line-height: 30px;
+		    }
+		    .about-description-text {
+		    	font-size:19px;
+		    	margin-left: 15%;
+		    	width:250px;
+		    	margin-top:10px;
 		    }
 		}
 
@@ -232,9 +221,6 @@
 					$(this).addClass("navbar-active");
 			});
 
-			$(".gallery-unit").each(function() {
-				$(this).css("height",$(this).width()*2/3);
-			});
 
 		};
 
@@ -268,7 +254,6 @@
 <body>
 
 	<div class="page-container">
-        
 		<div class="parallax-cover">
 			<div href="javascript:void(0)" class="navbar-icon b" onclick="openNavbar()">
 				&#9776;
@@ -318,18 +303,18 @@
 			</ul>
 	
 			<div class="text-cover">
-				PESSOAS
+				SOBRE MIM
 			</div>
 		</div>
-		<div class="gallery-frame">	
-			<img class="gallery-unit" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
-			<img class="gallery-unit" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
-			<img class="gallery-unit" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
-			<img class="gallery-unit" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
-			<img class="gallery-unit" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
-			<img class="gallery-unit" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
-			<img class="gallery-unit" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
-			<img class="gallery-unit" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+
+		<div class="about-description-frame b">
+			<div class="about-description-title b">
+				Fábio <span>&nbsp;</span>Amorelli
+			</div>
+			<div class="about-description-text b">
+				Fotógrafo de 16 anos que mora em Itajubá, Minas Gerais. Com o passar de meus anos, pude desenvolver habilidades em áreas diversas relacionadas à arte visual, até me encontrar na fotografia. Tenho uma paixão extrema por preto e branco e pela expressividade na fotografia. Sinta-se à vontade para entrar em contato para conhecer mais o meu estilo e motivações ou me contratar.
+
+			</div>
 		</div>
 	</div>
 
