@@ -9,12 +9,6 @@
 	<!--Fonts-->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" rel="stylesheet">
 
-	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="CSS/lugares.css">
-
-	<!-- JavaScript -->
-	<script type="text/javascript" src="JS/lugares.js"></script>
-
 	<!-- JQuery -->		
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
@@ -103,42 +97,7 @@
 		}
 
 
-	/*Sidebar*/
-		
-		.sidebar-container {
-			position: fixed;
-			top:30%;
-			right:1%;
-			height:fit-content;
-			display: flex;
-		}
-
-		.sidebar-list {
-			margin:auto;
-			display: flex;
-			flex-direction: column;
-			padding:0;
-
-		}
-
-		.sidebar-list-unit {
-			justify-content: space-between;
-			list-style-type: none;
-			margin:6px auto;
-
-		}
-		.sidebar-img {
-			width:45px;
-		}
-		.sidebar-social-unit-link {
-			justify-content: center;
-		}
-
-
-		.side-icon-style {
-			color:white;
-		}
-
+	
 
 	/*Lugares*/
 		body {
@@ -178,14 +137,13 @@
 
 		.gallery-frame {
 			display: flex;
-			justify-content: ;
+			justify-content: space-between;
 			flex-wrap: wrap;
 		}
 
 		.gallery-unit {
-			margin:3px auto;
-			height:160px;
-			width:calc(25% - 6px);
+			margin:2px;
+			width:calc(25% - 4px);
 
 			transition-timing-function: linear;
 			transition: opacity 1.2s;
@@ -245,6 +203,10 @@
 					$navBar.css("display","flex");
 				}
 			}
+
+			$(".gallery-unit").each(function() {
+				$(this).css("height",$(this).width()*2/3);
+			});
 		};
 
 		function openNavbar()
@@ -269,54 +231,55 @@
 				&#9776;
 			</div>
 
-			<ul id="navbar-list" class="navbar-big-screen b">
-				<li>
-					<div class="navbar-topbar b">
-						<div class="navbar-item b">
-							<a href="">Home</a>
+				<ul id="navbar-list" class="navbar-big-screen b">
+					<li>
+						<div class="navbar-topbar b">
+							<div class="navbar-item b">
+								<a href="https://www.poxaxolas.tumblr.com/">Home</a>
+							</div>
 						</div>
-					</div>
-				</li>
+					</li>
 
-				<li>
-					<div class="navbar-topbar b">
-						<div class="navbar-item b">
-							<a href="">Pessoas</a>
+					<li>
+						<div class="navbar-topbar b">
+							<div class="navbar-item b">
+								<a href="https://www.poxaxolas.tumblr.com/pessoas">Pessoas</a>
+							</div>
 						</div>
-					</div>
-				</li>
+					</li>
 
-				<li>
-					<div class="navbar-topbar b">
-						<div class="navbar-item b">
-							<a href="">Lugares</a>
+					<li>
+						<div class="navbar-topbar b">
+							<div class="navbar-item b">
+								<a href="https://www.poxaxolas.tumblr.com/lugares">Lugares</a>
+							</div>
 						</div>
-					</div>
-				</li>
+					</li>
 
-				<li>
-					<div class="navbar-topbar b">
-						<div class="navbar-item b">
-							<a href="">Sobre</a>
+					<li>
+						<div class="navbar-topbar b">
+							<div class="navbar-item b">
+								<a href="https://www.poxaxolas.tumblr.com/sobre">Sobre</a>
+							</div>
 						</div>
-					</div>
-				</li>
+					</li>
 
-				<li>
-					<div class="navbar-topbar b">
-						<div class="navbar-item b">
-							<a href="">Contato</a>
+					<li>
+						<div class="navbar-topbar b">
+							<div class="navbar-item b">
+								<a href="https://www.poxaxolas.tumblr.com/contato">Contato</a>
+							</div>
 						</div>
-					</div>
-				</li>
+					</li>
 
-			</ul>
+				</ul>
 	
 			<div class="text-cover">
 				PAISAGENS
 			</div>
 		</div>
 		<div class="gallery-frame">	
+			<img class="gallery-unit" src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/592a6860198645.5a4181ddaca4b.jpg" alt="foto da galeria">
 			<img class="gallery-unit" src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/592a6860198645.5a4181ddaca4b.jpg" alt="foto da galeria">
 			<img class="gallery-unit" src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/592a6860198645.5a4181ddaca4b.jpg" alt="foto da galeria">
 			<img class="gallery-unit" src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/592a6860198645.5a4181ddaca4b.jpg" alt="foto da galeria">
