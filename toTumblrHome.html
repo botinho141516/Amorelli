@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<!--Fonts-->
-	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:100,200,300,400" rel="stylesheet">
 
 	<!-- JQuery -->		
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -96,6 +96,84 @@
 			}
 		}
 
+	/*SideBar*/
+		
+		.sidebar-container {
+			position: fixed;
+			top:30%;
+			right:1%;
+			height:fit-content;
+			display: flex;
+		}
+
+		.sidebar-list {
+			margin:auto;
+			display: flex;
+			flex-direction: column;
+			padding:0;
+
+		}
+
+		.sidebar-list-unit {
+			justify-content: space-between;
+			margin:6px auto;
+			list-style: none;
+
+		}
+		.sidebar-img {
+			width:45px;
+		}
+		.sidebar-social-unit-link {
+			justify-content: center;
+		}
+
+
+		.side-icon-style {
+			color:white;
+		}
+
+		.fa-facebook {
+			font-size:34px;
+		}
+
+		.fa-instagram {
+			font-size:32px;
+		}
+
+		.fa-behance {
+			font-size:28px;
+		}
+
+		@media only screen and (max-width:680px) {
+			.fa-facebook {
+				font-size:30px;
+			}
+
+			.fa-instagram {
+				font-size:28px;
+			}
+
+			.fa-behance {
+				font-size:24px;
+			}
+		}
+
+
+		@media only screen and (max-width:400px) {
+			.fa-facebook {
+				font-size:28px;
+			}
+
+			.fa-instagram {
+				font-size:26px;
+			}
+
+			.fa-behance {
+				font-size:22px;
+			}
+		}
+
+
 
 
 
@@ -165,6 +243,88 @@
 			margin-left:1.9em;
 		}
 
+		.home-frame-pessoas {
+			height:95vh;						
+			display:flex;
+			flex-direction: column;
+			justify-content:center;
+
+			background-image: url(https://i.imgur.com/W7bN64z.jpg);
+			background-attachment: fixed;
+		    background-position: center;
+		    background-repeat: no-repeat;
+		    background-size: cover;
+		}
+
+		.home-frame-lugares {
+			height:95vh;			
+			display:flex;
+			flex-direction: column;
+			justify-content:center;
+
+			background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/fs/592a6860198645.5a4181ddaca4b.jpg);
+			background-attachment: fixed;
+		    background-position: center;
+		    background-repeat: no-repeat;
+		    background-size: cover;
+		}
+
+		.home-frame-sobre {
+			height:95vh;
+			display:flex;
+			flex-direction: column;
+			justify-content:center;
+
+			background-image: url(https://i.imgur.com/8lL4mVe.jpg);
+			background-attachment: fixed;
+		    background-position: center;
+		    background-repeat: no-repeat;
+		    background-size: cover;
+		}
+
+		.home-frame-contato {
+			height:95vh;
+			display:flex;
+			flex-direction: column;
+			justify-content:center;
+
+			background-image: url(https://i.imgur.com/X5xzWbD.jpg);
+			background-attachment: fixed;
+		    background-position: center;
+		    background-repeat: no-repeat;
+		    background-size: cover;
+		}
+
+		.home-frame-text {
+			color:white;
+			font-size: 65px;
+			margin:auto;
+			text-align: center;
+			font-weight: 300;
+			letter-spacing: 19px;
+		}
+
+		.home-button {
+			margin:25px auto;
+			border:2px solid white;
+			height:fit-content;
+			padding:5px 8px;
+			width:120px;
+			text-decoration: none;
+			color:white;
+			text-align: center;
+		}
+
+		.home-button a {
+			color:inherit;
+			text-decoration:inherit;
+			height:fit-content;
+			font-size:22px;
+			font-family:'Source Sans Pro',sans-serif;
+			font-weight: 100;
+			letter-spacing: 5px;
+		}
+
 
 
 		@media only screen and (max-width:680px) {
@@ -187,6 +347,16 @@
 				margin-left:1.7em;
 			}
 
+			.home-frame-text {
+				font-size:50px;
+				letter-spacing: 15px;
+			}
+
+			.home-button a{
+				font-size:18px;
+				font-weight: 300;
+			}
+
 
 		@media only screen and (max-width:400px) {
 
@@ -207,6 +377,16 @@
 
 		    .margin-subtitle {
 				margin-left:2.em;
+			}
+
+			.home-frame-text {
+				font-size:40px;
+				letter-spacing: 12px;
+			}
+
+			.home-button a{
+				font-size:16px;
+				font-weight: 300;
 			}
 
 		}
@@ -257,6 +437,28 @@
 <body>
 
 	<div class="page-container">
+		<div class="sidebar-container b">
+            <ul class="sidebar-list">
+
+                <li class="sidebar-list-unit b">
+                    <a class="sidebar-social-unit-link" href="">
+                        <i class="fa fa-facebook side-icon-style b"></i>
+                    </a>
+                </li>
+
+                <li class="sidebar-list-unit b">
+                    <a class="sidebar-social-unit-link" href="">
+                        <i class="fa fa-instagram side-icon-style b"></i>
+                    </a>
+                </li>
+
+                <li class="sidebar-list-unit b">
+                    <a class="sidebar-social-unit-link" href="https://www.behance.net/amorelliff60bd">
+                        <i class="fa fa-behance side-icon-style b"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
 		<div class="parallax-cover">
 			<div href="javascript:void(0)" class="navbar-icon b" onclick="openNavbar()">
 				&#9776;
@@ -313,6 +515,42 @@
 					<span class="margin-subtitle"></span>
 				FOTOGRAFIA
 					<span style="font-size:10px">&nbsp;</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="home-frame-pessoas">
+			<div class="home-frame-text">
+				PESSOAS
+				<div class="home-button">
+					<a href="/">ME LEVE ATÉ LÁ</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="home-frame-lugares">
+			<div class="home-frame-text">
+				LUGARES
+				<div class="home-button">
+					<a href="/">ME LEVE ATÉ LÁ</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="home-frame-sobre">
+			<div class="home-frame-text">
+				SOBRE
+				<div class="home-button">
+					<a href="/">ME LEVE ATÉ LÁ</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="home-frame-contato">
+			<div class="home-frame-text">
+				CONTATO
+				<div class="home-button">
+					<a href="/">ME LEVE ATÉ LÁ</a>
 				</div>
 			</div>
 		</div>
