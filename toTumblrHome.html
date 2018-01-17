@@ -1,0 +1,323 @@
+<head>
+	<title>Amorelli</title>
+
+	<meta name="viewport" content="width=device-width" />
+	
+	<!-- Awesome Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!--Fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" rel="stylesheet">
+
+	<!-- JQuery -->		
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+	<style>
+	/*Navbar*/
+
+		.navbar-block {
+			display: block;
+			width:100%;
+		}
+
+		.navbar-active {
+			border-top: 2px solid white;
+
+		}
+
+		.navbar-topbar {
+			margin:auto;
+			width:70px;
+			padding:0 4px;
+		}
+
+		.navbar-topbar:hover {
+			border-top: 2px solid white;
+		}
+
+		.navbar-item {
+			text-align: center;
+		}
+
+
+		#navbar-list {
+			margin: 15px auto;
+			padding:18px 0;
+			display: flex;
+			list-style: none;
+			width:fit-content;
+		}
+
+
+
+		#navbar-list li {
+			margin:0 3px;
+			align-content: space-around;
+		}
+
+		#navbar-list li a{
+			text-decoration: none;
+			color:white;
+			font-weight: 300;
+			font-size:19px;
+			line-height: 150%;
+		}
+
+		.navbar-icon {
+			display:none;
+			float: right;	
+			color:white;
+			cursor: pointer;
+			font-size: 35px;
+			margin-right: 5px;
+		}
+
+		.navber-icon:hover {
+			border:1px solid #777;
+		}
+
+
+
+		@media only screen and (max-width: 500px) {
+
+
+		.navbar-icon {
+				display:block;
+				margin:2px solid white;
+			}
+		
+			#navbar-list {
+				display: none;
+			}
+		
+			#navbar-list li a{
+				font-size:22px;
+				line-height: 150%;
+			}
+		}
+
+
+
+
+	/*Home*/
+		html,body {
+			background-color: white;
+			width:100%;
+			margin:0;
+			font-family:'Source Sans Pro',sans-serif;
+		}
+
+		/*.b { 
+
+			border:1px solid red;
+		}*/
+
+
+		.parallax-cover {
+			height: 95vh;
+			width:100%;
+			
+			display: flex;
+			flex-direction: column;
+
+			background:linear-gradient(to bottom right, #191f30, #a8f6ff);
+			background-attachment: fixed;
+		    background-position: center;
+		    background-repeat: no-repeat;
+		    background-size: cover;
+
+
+		}
+
+		.text-cover-frame {
+			width:100%;
+			height:fit-content;
+			margin:15% 0 0 0;
+		}
+
+
+		.text-cover {
+			margin:auto;
+			text-align: center;
+			width:fit-content;
+			color:white;
+			font-family: 'Times New Roman', sans-serif;
+			font-size:76px;
+			font-weight: 100;
+			letter-spacing: 8px;
+
+			border-bottom: 2px solid white;
+		}
+
+		.text-cover-subtitle{
+			margin:auto;
+			text-align: center;
+			width:fit-content;
+			color:white;
+			font-family: 'Source Sans Pro', sans-serif;
+			font-size:30px;
+			font-weight: 100;
+			letter-spacing: 20px;
+
+		}
+
+		.margin-subtitle {
+			margin-left:1.9em;
+		}
+
+
+
+		@media only screen and (max-width:680px) {
+		    .parallax-cover {
+		        background-attachment: scroll;
+		        height:80vh;
+		    }
+
+		    .text-cover {
+		    	font-size:55px;
+			    letter-spacing: 10px;
+		    }
+
+		    .text-cover-subtitle {
+		    	font-size:24px;
+		    	letter-spacing: 16px;
+		    }
+
+		    .margin-subtitle {
+				margin-left:1.7em;
+			}
+
+
+		@media only screen and (max-width:400px) {
+
+			.parallax-cover {
+		        background-attachment: scroll;
+		        height:60vh;
+		    }
+
+			.text-cover {
+				font-size: 40px;
+				letter-spacing:8px;
+			}
+
+		    .text-cover-subtitle {
+		    	font-size:18px;
+		    	letter-spacing: 12px;
+		    }
+
+		    .margin-subtitle {
+				margin-left:2.em;
+			}
+
+		}
+
+
+	</style>
+
+	<script>
+		window.onload = function()
+		{
+			$(".navbar-topbar").each(function($index) {
+				var $pagAtual = 0;
+
+				if ($index == $pagAtual) 
+					$(this).addClass("navbar-active");
+			});
+
+
+		};
+
+		function openNavbar() {
+			var $navBar = $("#navbar-list");
+
+			if($navBar.css("display") === "none") {
+				$navBar.css("display","block");
+			} else {
+				$navBar.css("display","none");
+			}
+		}
+
+		window.onresize = function() {
+			var $navBar = $("#navbar-list");
+
+			if($(window).width() >= 500) {
+				if($navBar.css("display") === "block" || $navBar.css("display") === "none") {
+					$navBar.css("display","flex");
+				}
+
+			} else {
+				$navBar.css("display","none");
+			}
+		};
+
+	</script>
+
+</head>
+
+<body>
+
+	<div class="page-container">
+		<div class="parallax-cover">
+			<div href="javascript:void(0)" class="navbar-icon b" onclick="openNavbar()">
+				&#9776;
+			</div>
+
+			<ul id="navbar-list" class="navbar-big-screen b">
+				<li>
+					<div class="navbar-topbar b">
+						<div class="navbar-item b">
+							<a href="poxaxolas.tumblr.com/">Home</a>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<div class="navbar-topbar b">
+						<div class="navbar-item b">
+							<a href="poxaxolas.tumblr.com/pessoas">Pessoas</a>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<div class="navbar-topbar b">
+						<div class="navbar-item b">
+							<a href="poxaxolas.tumblr.com/lugares">Lugares</a>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<div class="navbar-topbar b">
+						<div class="navbar-item b">
+							<a href="poxaxolas.tumblr.com/sobre">Sobre</a>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<div class="navbar-topbar b">
+						<div class="navbar-item b">
+							<a href="poxaxolas.tumblr.com/contato">Contato</a>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+			<div class="text-cover-frame b">
+				<div class="text-cover b">
+					&nbsp; Amorelli &nbsp;<br>
+				</div>
+				
+				<div class="text-cover-subtitle b">
+					<span class="margin-subtitle"></span>
+				FOTOGRAFIA
+					<span style="font-size:10px">&nbsp;</span>
+				</div>
+			</div>
+		</div>
+
+		
+	</div>
+
+</body>
