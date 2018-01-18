@@ -173,26 +173,34 @@
 
 		.gallery-frame {
 			display: flex;
-			justify-content: space-between;
+			justify-content: flex-start;
 			flex-wrap: wrap;
 		}
 
-		.gallery-unit {
+		.crop-gallery {
 			margin:2px;
 			width:calc(25% - 4px);
+			overflow-x: hidden;
+		}
 
+		.crop-gallery img {
+			overflow-x: hidden;
+			margin:auto;
+			max-height:100%;
 			transition-timing-function: linear;
 			transition: opacity 1.2s;
 			-webkit-transition: opacity 1.2s;
 			-moz-transition: opacity 1.2s;
 			-o-transition:opacity 1.2s;
-
+			transform: translateX(-10%);
 			opacity:1;
 		}
 
 		.gallery-unit:hover {
 			opacity:0.3;
 		}
+
+		
 
 		@media only screen and (max-width:680px) {
 		    .parallax-cover {
@@ -226,7 +234,7 @@
 					$(this).addClass("navbar-active");
 			});
 
-			$(".gallery-unit").each(function() {
+			$(".crop-gallery").each(function() {
 				$(this).css("height",$(this).width()*2/3);
 			});
 
@@ -255,7 +263,7 @@
 			}
 
 
-			$(".gallery-unit").each(function() {
+			$(".crop-gallery").each(function() {
 				$(this).css("height",$(this).width()*2/3);
 			});
 		};
@@ -320,16 +328,47 @@
 				PESSOAS
 			</div>
 		</div>
-		<div class="gallery-frame">	
-			<img class="gallery-unit" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
-			<img class="gallery-unit" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
-			<img class="gallery-unit" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
-			<img class="gallery-unit" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
-			<img class="gallery-unit" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
-			<img class="gallery-unit" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
-			<img class="gallery-unit" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
-			<img class="gallery-unit" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
-			<img class="gallery-unit" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+		<div class="gallery-frame">
+			<div class="crop-gallery">	
+				<img src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+			</div>
+
+			<div class="crop-gallery">	
+				<img src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+			</div>
+
+			<div class="crop-gallery">	
+				<img src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+			</div>
+
+			<div class="crop-gallery">	
+				<img src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+			</div>
+
+			<div class="crop-gallery">	
+				<img src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+			</div>
+
+			<div class="crop-gallery">	
+				<img src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+			</div>
+
+			<div class="crop-gallery">	
+				<img src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+			</div>
+
+			<div class="crop-gallery">	
+				<img src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+			</div>
+
+			<div class="crop-gallery">	
+				<img src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+			</div>
+
+			<div class="crop-gallery">	
+				<img src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+			</div>
+				
 		</div>
 	</div>
 

@@ -141,16 +141,22 @@
 			flex-wrap: wrap;
 		}
 
-		.gallery-unit {
+		.crop-gallery {
 			margin:2px;
 			width:calc(25% - 4px);
+			overflow-x: hidden;
+		}
 
+		.crop-gallery img {
+			overflow-x: hidden;
+			margin:auto;
+			max-height:100%;
 			transition-timing-function: linear;
 			transition: opacity 1.2s;
 			-webkit-transition: opacity 1.2s;
 			-moz-transition: opacity 1.2s;
 			-o-transition:opacity 1.2s;
-
+			transform: translateX(-10%);
 			opacity:1;
 		}
 
@@ -189,7 +195,7 @@
 					$(this).addClass("navbar-active");
 			});
 
-			$(".gallery-unit").each(function() {
+			$(".crop-gallery").each(function() {
 				$(this).css("height",$(this).width()*2/3);
 			});
 
@@ -204,7 +210,7 @@
 				}
 			}
 
-			$(".gallery-unit").each(function() {
+			$(".crop-gallery").each(function() {
 				$(this).css("height",$(this).width()*2/3);
 			});
 		};
@@ -278,16 +284,44 @@
 				PAISAGENS
 			</div>
 		</div>
-		<div class="gallery-frame">	
-			<img class="gallery-unit" src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/592a6860198645.5a4181ddaca4b.jpg" alt="foto da galeria">
-			<img class="gallery-unit" src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/592a6860198645.5a4181ddaca4b.jpg" alt="foto da galeria">
-			<img class="gallery-unit" src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/592a6860198645.5a4181ddaca4b.jpg" alt="foto da galeria">
-			<img class="gallery-unit" src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/592a6860198645.5a4181ddaca4b.jpg" alt="foto da galeria">
-			<img class="gallery-unit" src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/592a6860198645.5a4181ddaca4b.jpg" alt="foto da galeria">
-			<img class="gallery-unit" src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/592a6860198645.5a4181ddaca4b.jpg" alt="foto da galeria">
-			<img class="gallery-unit" src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/592a6860198645.5a4181ddaca4b.jpg" alt="foto da galeria">
-			<img class="gallery-unit" src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/592a6860198645.5a4181ddaca4b.jpg" alt="foto da galeria">
-			<img class="gallery-unit" src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/592a6860198645.5a4181ddaca4b.jpg" alt="foto da galeria">
+		
+		<div class="gallery-frame">
+			<div class="crop-gallery">
+				<img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/592a6860198645.5a4181ddaca4b.jpg" alt="foto da galeria">
+			</div>
+
+			<div class="crop-gallery">
+				<img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/592a6860198645.5a4181ddaca4b.jpg" alt="foto da galeria">
+			</div>
+
+			<div class="crop-gallery">
+				<img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/592a6860198645.5a4181ddaca4b.jpg" alt="foto da galeria">
+			</div>
+
+			<div class="crop-gallery">
+				<img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/592a6860198645.5a4181ddaca4b.jpg" alt="foto da galeria">
+			</div>
+
+			<div class="crop-gallery">
+				<img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/592a6860198645.5a4181ddaca4b.jpg" alt="foto da galeria">
+			</div>
+
+			<div class="crop-gallery">
+				<img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/592a6860198645.5a4181ddaca4b.jpg" alt="foto da galeria">
+			</div>
+
+			<div class="crop-gallery">
+				<img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/592a6860198645.5a4181ddaca4b.jpg" alt="foto da galeria">
+			</div>
+
+			<div class="crop-gallery">
+				<img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/592a6860198645.5a4181ddaca4b.jpg" alt="foto da galeria">
+			</div>
+
+			<div class="crop-gallery">
+				<img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/592a6860198645.5a4181ddaca4b.jpg" alt="foto da galeria">
+			</div>
+			
 		</div>
 	</div>
 
