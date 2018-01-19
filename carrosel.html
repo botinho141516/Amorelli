@@ -10,12 +10,6 @@
       <!-- Rest -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
 
-    
-    <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="CSS/carrosel.css">
-
-    <!-- JavaScript -->
-    <script type="text/javascript" src="JS/carrosel.js"></script>
 
     <!-- JQuery -->   
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -23,29 +17,145 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
   
 
+  <style>
+    /*Carrosel*/
+
+    #carousel-page-container {
+      position:relative;
+      z-index: 100;
+      background-color: rgba(0,0,0,0.7);
+      height:fit-content;
+    }
+
+
+    .carousel-body {
+      width:100%;
+      height:fit-content;
+      display: flex;
+      justify-content: center;
+    }
+
+
+    .carousel-photo-container {
+      margin:auto;
+      height:-webkit-fill-available;
+      height:-moz-fill;
+      display: flex;
+      justify-content: center;
+
+    }
+
+    .photo {
+    }
+
+    .photo-carousel {
+      display: none;
+      width:95%;
+      max-height:99vh;
+      margin:auto;
+    }
+
+    #close-x {
+      color:rgb(238,238,238);
+      font-size: 40px;
+      position: fixed;
+      top:4%;
+      right:4%;
+    }
+
+    .control {
+      margin:0 2%;
+    }
+
+    .control span {
+      color:rgba(238,238,238,0.5);
+      font-size:35px;
+      top:45%;
+    }
+
+
+
+  </style>
+
+  <script>
+    // Carrosel
+      var $gallery;
+      var $actualPhotoIndex = 0;
+
+      $(".photo").click(function() {
+        showCarrosel(1,$(this));
+      });
+
+      function showCarrosel($onOff,$actualPhoto) {
+        if($onOff === 1) {
+
+          $gallery = $(".photo");
+
+
+          $($gallery).each(function($index) {
+            if($(this) == $actualPhoto) {
+              $actualPhotoIndex = $index;
+              break;
+            }
+          });
+
+          $($gallery).eq($actualPhotoIndex).css("display","block");
+
+
+          $("#carousel-page-container").css("display","block");
+        
+        } else if($onOff === 0) {
+          $("#carousel-page-container").css("display","none");
+        }
+
+      };
+
+
+      function changePhoto($direction) {
+
+        $($gallery).eq($actualPhotoIndex).css("display","none");
+
+
+        if($actualPhotoIndex + $direction === $gallery.length) {
+
+          $actualPhotoIndex = -1;
+        }
+        
+        else if ($actualPhotoIndex+$direction === -1) {
+          $actualPhotoIndex = $gallery.length;
+        }
+
+
+        $actualPhotoIndex += $direction;
+        $($gallery).eq($actualPhotoIndex).css("display","block");
+
+      };
+
+  </script>
+
 </head>
 <body>
   
-  <div class="b carousel-page-container">
+  <div id="carousel-page-container">
 
-    <a id="close-x">
+    <a id="close-x" onclick="showCarrosel(0)">
       &times;
     </a>
 
     <div class="b carousel-body">
 
-      <a id="left-control" href="#">
-        <span class="b glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <a id="left-control" class="control" onclick="changePhoto(-1)" href="#">
+        <span class="b glyphicon glyphicon-chevron-left"></span>
       </a>
 
       <div class="b carousel-photo-container">
-        <img class="b carousel-img" src="https://unsplash.it/2000/1250?image=397">
-        <img class="b carousel-img" src="https://unsplash.it/2000/1250?image=689">
-        <img class="b carousel-img" src="https://unsplash.it/2000/1250?image=675"> 
+        <img class="photo-carousel" src="https://unsplash.it/2000/1250?image=397">
+        <img class="photo-carousel" src="https://unsplash.it/2000/1250?image=689">
+        <img class="photo-carousel" src="https://unsplash.it/2000/1250?image=675"> 
       </div>
 
-      <a id="right-control" href="#">
-        <span class="b glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <a id="right-control" class="control" onclick="changePhoto(1)" href="#">
+        <span class="b glyphicon glyphicon-chevron-right"></span>
       </a>
     </div>    
   </div>
