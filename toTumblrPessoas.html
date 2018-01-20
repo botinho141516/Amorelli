@@ -3,6 +3,13 @@
 
 	<meta name="viewport" content="width=device-width" />
 	
+
+	<!-- BootStrap -->
+      <!-- Glyphicons -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <!-- Rest -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+      
 	<!-- Awesome Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -97,41 +104,62 @@
 		}
 
 
-	/*Sidebar*/
-		
-		.sidebar-container {
-			position: fixed;
-			top:30%;
-			right:1%;
-			height:fit-content;
-			display: flex;
-		}
+	/*Carrosel*/
 
-		.sidebar-list {
-			margin:auto;
-			display: flex;
-			flex-direction: column;
-			padding:0;
-
-		}
-
-		.sidebar-list-unit {
-			justify-content: space-between;
-			list-style-type: none;
-			margin:6px auto;
-
-		}
-		.sidebar-img {
-			width:45px;
-		}
-		.sidebar-social-unit-link {
-			justify-content: center;
-		}
+	    #carousel-page-container {
+	      display: none;
+	      position:relative;
+	      left:0;
+	      z-index: 999;
+	      background-color: rgba(0,0,0,0.5);
+	      height:fit-content;
+	    }
 
 
-		.side-icon-style {
-			color:white;
-		}
+	    .carousel-body {
+	      width:100%;
+	      height:fit-content;
+	      display: flex;
+	      justify-content: center;
+	    }
+
+
+	    .carousel-photo-container {
+	      margin:auto;
+	      height:-webkit-fill-available;
+	      height:-moz-fill;
+	      display: flex;
+	      justify-content: center;
+
+	    }
+
+	    .photo-carousel {
+	      width:95%;
+	      max-height:99vh;
+	      margin:auto;
+	    }
+
+	    #close-x {
+	      color:rgb(238,238,238);
+	      font-size: 40px;
+	      position: fixed;
+	      top:4%;
+	      right:4%;
+	      cursor: pointer;
+	    }
+
+	    .control {
+	      margin:0 2%;
+	    }
+
+	    .control span {
+	      color:rgba(238,238,238,0.5);
+	      font-size:35px;
+	      top:45%;
+	    }
+
+
+	
 
 
 	/*Pessoas*/
@@ -140,6 +168,13 @@
 			width:100%;
 			margin:0;
 			font-family:'Source Sans Pro',sans-serif;
+		}
+
+		.page-container {
+			position:absolute;
+			top:0;
+			left:0;
+			width:100%;
 		}
 
 
@@ -183,7 +218,7 @@
 			overflow-x: hidden;
 		}
 
-		.crop-gallery img {
+		.photo {
 			overflow-x: hidden;
 			margin:auto;
 			max-height:100%;
@@ -192,8 +227,8 @@
 			-webkit-transition: opacity 1.2s;
 			-moz-transition: opacity 1.2s;
 			-o-transition:opacity 1.2s;
-			transform: translateX(-10%);
 			opacity:1;
+			cursor: pointer;
 		}
 
 		.gallery-unit:hover {
@@ -268,11 +303,89 @@
 			});
 		};
 
+		// Carrosel
+      var $gallery;
+  	  var $actualPhotoIndex;
+      
+      $(document).ready(function() {
+	      $(".photo").click(function() {
+	        showCarrosel(1,$(this));
+	      });
+	      
+	  });
+
+      function showCarrosel($onOff,$actualPhoto) {
+
+        if($onOff === 1) {
+
+          $gallery = $(".photo");
+
+
+          $($gallery).each(function($index) {
+            if($(this).get(0) == $actualPhoto.get(0)) {
+              $actualPhotoIndex = $index;
+              return false;
+            }
+          });
+
+
+          $("#carousel-page-container").css("display","block");
+          $("body").css("overflow-y","hidden");
+
+          $("#carousel-page-container").css("top",$(window).scrollTop());
+          $("#showingPhoto").attr("src",$($gallery).eq($actualPhotoIndex).attr("src"));
+        
+        } else if($onOff === 0) {
+        	$("#carousel-page-container").css("display","none");
+            $("body").css("overflow-y","");
+        }
+
+      };
+
+
+      function changePhoto($direction) {
+
+        if($actualPhotoIndex + $direction === $gallery.length) {
+
+          $actualPhotoIndex = -1;
+        }
+        
+        else if ($actualPhotoIndex+$direction === -1) {
+          $actualPhotoIndex = $gallery.length;
+        }
+
+
+        $actualPhotoIndex += $direction;
+        $("#showingPhoto").attr("src",$($gallery).eq($actualPhotoIndex).attr("src"));
+
+      };
+	
+
 	</script>
 
 </head>
 
 <body>
+	<div id="carousel-page-container">
+
+		<a id="close-x" onclick="showCarrosel(0,null)">
+		&times;
+		</a>
+		<div class="b carousel-body">
+
+			<a id="left-control" class="control" onclick="changePhoto(-1)" href="#">
+				<span class="b glyphicon glyphicon-chevron-left"></span>
+			</a>
+
+			<div class="b carousel-photo-container">
+				<img class="photo-carousel" id="showingPhoto" src="/"> 
+			</div>
+
+			<a id="right-control" class="control" onclick="changePhoto(1)" href="#">
+				<span class="b glyphicon glyphicon-chevron-right"></span>
+			</a>
+		</div>    
+	</div>
 
 	<div class="page-container">
         
@@ -330,43 +443,43 @@
 		</div>
 		<div class="gallery-frame">
 			<div class="crop-gallery">	
-				<img src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+				<img class="photo" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
 			</div>
 
 			<div class="crop-gallery">	
-				<img src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+				<img class="photo" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
 			</div>
 
 			<div class="crop-gallery">	
-				<img src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+				<img class="photo" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
 			</div>
 
 			<div class="crop-gallery">	
-				<img src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+				<img class="photo" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
 			</div>
 
 			<div class="crop-gallery">	
-				<img src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+				<img class="photo" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
 			</div>
 
 			<div class="crop-gallery">	
-				<img src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+				<img class="photo" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
 			</div>
 
 			<div class="crop-gallery">	
-				<img src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+				<img class="photo" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
 			</div>
 
 			<div class="crop-gallery">	
-				<img src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+				<img class="photo" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
 			</div>
 
 			<div class="crop-gallery">	
-				<img src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+				<img class="photo" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
 			</div>
 
 			<div class="crop-gallery">	
-				<img src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
+				<img class="photo" src="https://i.imgur.com/W7bN64z.jpg" alt="foto da galeria">
 			</div>
 				
 		</div>
